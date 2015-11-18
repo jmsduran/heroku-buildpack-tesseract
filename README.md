@@ -1,27 +1,27 @@
 # Heroku Buildpack Tesseract
 
-This package provide a custom Heroku buildpack providing the [Tesseract OCR](https://code.google.com/p/tesseract-ocr/) binary and all the required libraries to Heroku apps. Training data for English and Finnish language is provided. 
+This package provide a custom Heroku buildpack providing the [Tesseract OCR](https://code.google.com/p/tesseract-ocr/) binary and all the required libraries to Heroku apps. Training data for the English and Spanish language are provided.
 
 ## Configuration
 
 The first step consists in allowing your Heroku app to use multiple buildpacks. We use the excellent [heroku-buildpack-multi](https://github.com/ddollar/heroku-buildpack-multi) as follows:
 
-1. add a configuration variable as 
+1. add a configuration variable as
     ```
     heroku config:set
     BUILDPACK_URL=https://github.com/ddollar/heroku-buildpack-multi
     ```
-	
-    or (equivalently) change the default buildpack as   
+
+    or (equivalently) change the default buildpack as
     ```
     heroku buildpacks:set https://github.com/ddollar/heroku-buildpack-multi
     ```
-2. create a file called `.buildpacks` inside your app as  
+2. create a file called `.buildpacks` inside your app as
     ```
     https://github.com/heroku/heroku-buildpack-LANG
     https://github.com/matteotiziano/heroku-buildpack-tesseract
     ```
-	
+
     where `LANG` is the language used by your app (e.g., `ruby`, `python`, or `nodejs`). A complete list of Heroku buildpacks can be found [here](https://devcenter.heroku.com/articles/buildpacks).
 3. you can use the `tesseract` binary in your Heroku app!
 4. deploy :)
@@ -35,6 +35,6 @@ This fork solves the [issue](https://github.com/fouady/RoR-Tesseract-Heroku/issu
 ## License
 MIT License.
 
-Original work Copyright (c) 2013 Marco Azimonti  
+Original work Copyright (c) 2013 Marco Azimonti
 Modified work Copyright (c) 2015 Matteo Maggioni
 
